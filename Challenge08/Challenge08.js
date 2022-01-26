@@ -30,8 +30,9 @@
   let romio = new customer ("Romio Joliat" ,35 );
   let Mario = new customer ("Mario Ristrova", 39)
   let sofia = new customer ("Sofia firnando", 50,)
-  let keys = object.key (customer);
-  let value = object.value (customer);
+   customer.key (customer);
+  let value = customer.value (customer);
+
 
   
   // -------------------------------------------------------------------------------------------------------
@@ -58,7 +59,7 @@
   // -------------------------------------------------------------------------------------------------------
   
   const getEntries = (obj) => {
-    // write your code here
+    
   };
   
   // -------------------------------------------------------------------------------------------------------
