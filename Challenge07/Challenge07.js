@@ -18,17 +18,7 @@
 
 // ------------------------
 
-const objLat = (obj) => {
-    let firstName = 'Jaber ';
-    let lastName = 'Saleh';
-    let age = 67 ;
-    let hobby = 'Gaming and Sleeping';
-    var status = 'my name is' + firstName + lastName + ' I am ' +age + ' YO,' + 
-    "and I love " + hobby ;
-    return status;
-    console.log (status);
-};
-console.log (objLat);
++
 // 2) ---------------------
 //
 //  Rekey is receiving info about applicants for his startup company (as array of objects), containing first name,
