@@ -19,7 +19,7 @@
 // ------------------------
 
 const objLat = (obj) => {
-    let description = (obj.firstName).charAt(0).toUpperCase() +(obj.firstName).slice(1)+" " + (obj.lastName).charAt(0).toUpperCase() +(obj.lastName).slice(1)+ " I am " + obj.age + " YO, and I love " +
+    let description = "my name is "+ (obj.firstName).charAt(0).toUpperCase() +(obj.firstName).slice(1)+" " + (obj.lastName).charAt(0).toUpperCase() +(obj.lastName).slice(1)+ " I am " + obj.age + " YO, and I love " +
   obj.hobby + "."
  
     return description
@@ -86,19 +86,22 @@ const objLat = (obj) => {
 
 // ------------------------
  const cvFormatter = (arr) => {
-    
     let array = []
-    let fullName; ;
+    let fullName;
     arr.map(element =>{
-        if (element.firstName !== null && element.LastName !== null ) {
-     let obj = {fullName: "" , tech : ""}
-     fullName = element.firstName + " " + element.LastName;
-     obj.fullName = fullName;
-     obj.tech = element.tech;
-     array.push (obj)
+        if (element.yearsOfExperience>1){
+        if (element.firstName !== null && element.lastName !== null ) {
+    		element.fullName = element.firstName + " " + element.lastName;
+        } else if ((element.firstName !== null && element.lastName === null )){
+        	element.fullName = element.firstName
+        } else if ((element.firstName === null && element.lastName !== null )){
+        	element.fullName = element.lastName
         }
-        return array
+        let obj = {	fullName : `${element.fullName}` ,tech : `${element.tech}` }
+       array.push(obj)
+    }
     })
+    return array
 } 
 
 // 3) ---------------------
@@ -131,16 +134,20 @@ let result = {}
     arr.map(element =>{	
         switch (element.tech) {
             case 'Python':
-             result.python_Devs =  python_Devs +1 ;	
+            	python_Devs += 1
+             result.python_Devs =  python_Devs ;	
                 break;
             case "JS":
-            result.javaScript_Devs = javaScript_Devs+1;
+            	javaScript_Devs += 1
+            result.javaScript_Devs = javaScript_Devs;
             break;
             case ".Net":
-            result.dotNet_Devs = dotNet_Devs +1 ;
+            	dotNet_Devs += 1
+            result.dotNet_Devs = dotNet_Devs ;
             break;
             case "Java":
-            result.java_Devs =java_Devs+1;
+            	java_Devs +=1
+            result.java_Devs =java_Devs;
             break;
                  }
         result.totalApplicants = arr.length;  
@@ -149,8 +156,8 @@ let result = {}
         result.rejectedApplicants = rejectedApplicants 
          }
     })	
- 	 
-})
+ 	return result 
+}
 
 
 // 4) ---------------------
@@ -279,7 +286,6 @@ const classesAvg = (data) => {
 for (let i=0 ; i < grades.length ; i++){
 	let classes = grades[i].classes
 
-
 	classes.map(element =>{
 			let classScores = element.classScores
 			let sumation = 0
@@ -289,6 +295,7 @@ for (let i=0 ; i < grades.length ; i++){
 			element.avg = Math.floor (sumation / classScores.length)
 	})
 }
+return data 
 };
 
 module.exports = { objLat, cvFormatter, applicationsStatics, classesAvg };
