@@ -39,6 +39,7 @@ const roundDecimals = (arr) => {
     function roundItems(item){
         result.push (Math.round (item))
     }
+    return result
 }
 
 // 3) ---------------------
@@ -47,7 +48,7 @@ const roundDecimals = (arr) => {
 //  and 50$ for those who worked less, given their data increase their salary and return the data back again 
 //  
 //  EX:
- let data = [
+// /let data = [
 //     {
 //         name: "Robert",
 //         section: "Transport",
@@ -106,14 +107,17 @@ const roundDecimals = (arr) => {
 
 // ------------------------
 const employeesBonus = (arr) => {
-	for (let i=0 ; i <data.length ; i++){
-        if (data[i].section === "Production" && data[i]. workHours > 8){
-                 data[i].salary= parseInt(data[i].salary) + 100 + "$" ;
-        }else if (data[i].section === "Production" && data[i]. workHours < 8){
-            data[i].salary= parseInt(data[i].salary) + 50 + "$" ;
+    arr.forEach (addition);
+    function addition(item ,index ,arr){
+    //function addition (){
+        if (arr[index].workHours > 8){
+         arr[index].salary =parseInt(arr[index].salary)+100 +`$`
+        } else {
+            arr[index].salary =parseInt(arr[index].salary)+ 50 + `$`
         }
     }
-}
+    return arr
+    } 
 
 // 4) ---------------------
 // Optional:
