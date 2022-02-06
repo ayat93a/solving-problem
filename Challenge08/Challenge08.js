@@ -27,12 +27,14 @@
 // -------------------------------------------------------------------------------------------------------
 
 const customerAndAge = (obj) => {
-    let str = ""
-    let results = []
-    for ( const element in obj ) {
-      str = `Customer Name : ${element}, Age : ${obj[element]}`
-      results.push(str)
+  let results = []
+  let str = ""
+     for ( const element in obj ) {
+       str = `Customer Name :${element} , Age :${obj[element]}`
+       results.push(str)
+     
     } 
+    return results
 };
 
 // -------------------------------------------------------------------------------------------------------
@@ -59,20 +61,15 @@ const customerAndAge = (obj) => {
 // -------------------------------------------------------------------------------------------------------
 
 const getEntries = (obj) => {
-    let recipeInfo = {
-        name: "pizza",
-        ingredients: ["bread", "tomato", "chicken", "mayo"],
-        cookTime: "twoHours",
-        price: "25$",
-      };
-      
+   
       let str = ""
       let results = []
-      for (const elemnt in recipeInfo){
-        str = `${elemnt}: ${recipeInfo[elemnt]}`
+      for (const elemnt in obj){
+        str = `${elemnt}: ${obj[elemnt]}`
         
         results.push(str)
       }
+      return results
 };
 
 // -------------------------------------------------------------------------------------------------------
@@ -111,13 +108,18 @@ const courses = [
 ];
 
 const getInfo = (arr) => {
-  let coursesName = [];
+  let results = { }
+ let coursesName = [];
   let studentsName = [];
-  arr.map(element => {
-    coursesName.push(element.course)
-studentsName .push(element. Students)
-})
-  return { coursesName, studentsName };
+  for (let item in arr){
+ coursesName.push(arr[item].course) 
+ for (let i in (arr[item].Students)){
+ 	studentsName.push(arr[item].Students[i])
+ 	}
+  }	
+ results.coursesName=coursesName
+ results.studentsName=studentsName
+return results 
 };
 
 //  ------------------------------------------------------------------------------------------------------
@@ -139,17 +141,18 @@ studentsName .push(element. Students)
 //  ------------------------------------------------------------------------------------------------------
 
 const getStudents = (arr) => {
-    let results = []
-    arr.map(element =>{
-        let obj = {student : "" ,course: "" }
-      obj.student = element
-      courses.map(item =>{
-          if (item.Students.includes(element)){
-              obj.course = item.course
-          }
-      })
-      results.push(obj)	
+  let results = []
+  arr.map(element =>{
+      let obj = {Student : "" ,course: "" }
+    obj.Student = element
+    courses.map(item =>{
+        if (item.Students.includes(element)){
+            obj.course = item.course
+        }
     })
+    results.push(obj)	
+  })
+    return results
 };
 
 module.exports = {
